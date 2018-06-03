@@ -63,7 +63,7 @@ def read_pgn_and_update_db(path):
                 black_elo = int(line.split("\"")[1])
             elif line.startswith("[Site "):
                 lichess_id = line.split("\"")[1].split("/")[-1]
-            elif line.startswith("1. ") and "[%eval" in line and white_elo != -1 and black_elo != -1:
+            elif line.startswith("1. ") and "[%eval" in line and white_elo != -1 and black_elo != -1 and "3. " in line:
                 acpl = acpl_white_black(line)
                 collection.insert_one({ "_id": lichess_id + "-W",
                                         "rating": white_elo,
