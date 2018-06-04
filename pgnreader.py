@@ -39,8 +39,6 @@ def read_pgn_and_update_db(path):
     db = client.get_database("acplstats")
     collection = db.get_collection("entries")
     with open(path) as f:
-        lines = f.readlines()
-        
         white_id = ""
         black_id = ""
         white_elo = -1
@@ -48,7 +46,7 @@ def read_pgn_and_update_db(path):
         speed = ""
         lichess_id = ""
 
-        for line in lines:
+        for line in f:
             line = line.strip()
             if line == "": continue
             if line.startswith("[Event "):
