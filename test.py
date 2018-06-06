@@ -1,4 +1,5 @@
 from pgnreader import annotation_to_cp, acpl_white_black
+from pgnreader_median import mcpl_white_black
 
 assert annotation_to_cp("-0.2") == -20
 assert annotation_to_cp("1.4") == 140
@@ -11,5 +12,8 @@ pgn1 = "1. e4 { [%eval 0.2] } 1... e6 { [%eval 0.13] } 2. Bc4 { [%eval -0.31] } 
 assert acpl_white_black(pgn1) == (88, 55)
 pgn2 = "1. e4 { [%eval 0.12] } 1... e5 { [%eval 0.26] } 2. Nf3 { [%eval 0.21] } 2... d6 { [%eval 0.3] } 3. d4 { [%eval 0.35] } 3... exd4 { [%eval 0.34] } 4. Nxd4 { [%eval 0.3] } 4... Nf6 { [%eval 0.41] } 5. Nc3 { [%eval 0.35] } 5... Be7 { [%eval 0.33] } 6. Be3 { [%eval 0.2] } 6... O-O { [%eval 0.16] } 7. Be2 { [%eval 0.18] } 7... Nbd7 { [%eval 0.41] } 8. Qd2 { [%eval 0.17] } 8... Nc5 { [%eval 0.61] } 9. f3 { [%eval 0.58] } 9... Nfd7 { [%eval 0.94] } 10. O-O-O { [%eval 0.97] } 10... Ne6 { [%eval 1.06] } 11. Kb1 { [%eval 0.79] } 11... Nxd4 { [%eval 0.81] } 12. Bxd4 { [%eval 0.48] } 12... Nb6?! { [%eval 1.11] } 13. g4 { [%eval 1.03] } 13... Be6 { [%eval 1.05] } 14. h4 { [%eval 1.13] } 14... Bxh4 { [%eval 2.29] } 15. f4?! { [%eval 1.36] } 15... Bc4? { [%eval 3.99] } 16. Bxc4 { [%eval 3.63] } 16... Nxc4 { [%eval 4.06] } 17. Qd3 { [%eval 3.72] } 17... c5 { [%eval 3.74] } 18. Qxc4? { [%eval 2.22] } 18... cxd4 { [%eval 2.64] } 19. Rxd4?! { [%eval 2.0] } 19... Rc8? { [%eval 3.7] } 20. Qd3 { [%eval 3.43] } 20... Bf6?? { [%eval 6.97] } 21. e5 { [%eval 6.93] } 21... Be7?? { [%eval #1] } 22. Qxh7# 1-0"
 assert acpl_white_black(pgn2) == (25, 71)
+
+assert mcpl_white_black(pgn1) == (3, 0)
+assert mcpl_white_black(pgn2) == (8, 23)
 
 print("Tests passed!")
