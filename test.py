@@ -1,5 +1,7 @@
 from pgnreader import annotation_to_cp, acpl_white_black
 from pgnreader_median import mcpl_white_black
+from pgnreader_qop import qop_white_black
+from pgnreader_winningchances import awcpl_white_black
 
 assert annotation_to_cp("-0.2") == -20
 assert annotation_to_cp("1.4") == 140
@@ -15,5 +17,7 @@ assert acpl_white_black(pgn2) == (25, 71)
 
 assert mcpl_white_black(pgn1) == (3, 0)
 assert mcpl_white_black(pgn2) == (8, 23)
+
+assert qop_white_black(pgn1) == (71, 79)
 
 print("Tests passed!")
